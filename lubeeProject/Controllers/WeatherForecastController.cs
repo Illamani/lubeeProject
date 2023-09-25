@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,25 @@ namespace lubeeProject.Controllers
 		}
 
 		[HttpGet]
+		[Route("pruebamysql")]
+		public async Task PruebaSql()
+		{
+			using var connection = new MySqlConnection("Server=localhost;Port=3306;Database=lubee_project;User=root;Password=M@nzana12345;");
+			await connection.OpenAsync();
+
+			using var command = new MySqlCommand("SELECT * FROM producto;", connection);
+			using var reader = await command.ExecuteReaderAsync();
+			while (await reader.ReadAsync())
+			{
+				var value = reader.GetValue(0);
+				// do something with 'value'
+			}
+		}
+
+		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
+			
 			var rng = new Random();
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
