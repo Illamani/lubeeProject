@@ -1,7 +1,12 @@
+using lubeeProject.Interfaces.Repositorios;
+using lubeeProject.Interfaces.Servicios;
+using lubeeProject.Repositorio;
+using lubeeProject.Servicio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +32,12 @@ namespace lubeeProject
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
+
+			services.AddScoped<IProductosService, ProductosService>();
+			services.AddScoped<IProductosRepositorio, ProductosRepositorio>();
+
+			services.AddDbContext<AppDbContext>(options =>
+				options.UseMySQL(Configuration.GetConnectionString("Default")));
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{

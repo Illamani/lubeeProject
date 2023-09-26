@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using lubeeProject.Interfaces.Servicios;
+using lubeeProject.Modelos;
+using lubeeProject.Repositorio;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using System;
@@ -18,10 +22,12 @@ namespace lubeeProject.Controllers
 		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
+		private readonly IProductosService _productosService;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger)
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, IProductosService productosService)
 		{
 			_logger = logger;
+			_productosService = productosService;
 		}
 
 		[HttpGet]
@@ -38,6 +44,14 @@ namespace lubeeProject.Controllers
 				var value = reader.GetValue(0);
 				// do something with 'value'
 			}
+		}
+
+		[HttpGet]
+		[Route("get-productos")]
+		public async Task<List<Producto>> PruebaEntityFramework([FromServices] AppDbContext context)
+		{
+			var productos = await _productosService.GetProductos();
+			return productos;
 		}
 
 		[HttpGet]
