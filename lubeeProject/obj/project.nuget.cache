@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4C7qZSGZKpC1jsz5HDVvCjBSCE7zvc2uIswJDeF2l5YGxFUH/Uv9+4h79lraNWf/k9SxnBS2fMKozMw8d4+YeA==",
+  "dgSpecHash": "8vutKy6g9weMyEHV4tIgolnL1XkWHyjNzPLbe0Xrzoh2gnnDiBoawdGMcxqylh8JriEVD6ikprMeHDf6+DSUfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Desktop\\ProyectoLubee\\lubeeProject\\lubeeProject.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\mysql.entityframeworkcore\\7.0.5\\mysql.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\mysqlconnector\\2.2.7\\mysqlconnector.2.2.7.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\riok.mapperly\\3.2.0\\riok.mapperly.3.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",

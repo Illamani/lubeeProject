@@ -15,6 +15,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.11",
           "MySql.EntityFrameworkCore": "7.0.5",
           "MySqlConnector": "2.2.7",
+          "Riok.Mapperly": "3.2.0",
           "Swashbuckle.AspNetCore": "5.6.3"
         },
         "runtime": {
@@ -291,6 +292,14 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.9.0.0",
             "fileVersion": "1.9.0.1"
+          }
+        }
+      },
+      "Riok.Mapperly/3.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
           }
         }
       },
@@ -731,6 +740,13 @@
       "sha512": "sha512-eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
       "path": "portable.bouncycastle/1.9.0",
       "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
+    },
+    "Riok.Mapperly/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EChq4G7PmEXhaPH4Ztw/CiHQ9iVg30Ir58vTA2MgGLsI+ciza5H4boLNK+mk+ik3eStwuA+ZeAxb4mhXVeDgFQ==",
+      "path": "riok.mapperly/3.2.0",
+      "hashPath": "riok.mapperly.3.2.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/5.6.3": {
       "type": "package",

@@ -1,5 +1,6 @@
 ﻿using lubeeProject.Interfaces.Servicios;
 using lubeeProject.Modelos;
+using lubeeProject.Modelos.Inputs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace lubeeProject.Controllers
 	public class CursoController : ControllerBase
 	{
 		private readonly ICursoService _cursoService;
+		private readonly MapperlyMapper _mapperly = new();
 		public CursoController(ICursoService cursoService)
 		{
 			_cursoService = cursoService;
@@ -26,9 +28,10 @@ namespace lubeeProject.Controllers
 
 		[HttpPost]
 		[Route("insert-curso")]
-		public async Task InsertCurso(Curso curso)
+		public async Task InsertCurso(CursoInput curso)
 		{
-			await _cursoService.InsertCurso(curso);
+			var cursoMapeo = _mapperly.Map(curso);
+			await _cursoService.InsertCurso(cursoMapeo);
 		}
     }
 }

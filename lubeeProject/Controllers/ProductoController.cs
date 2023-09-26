@@ -1,5 +1,6 @@
 ﻿using lubeeProject.Interfaces.Servicios;
 using lubeeProject.Modelos;
+using lubeeProject.Modelos.Inputs;
 using lubeeProject.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace lubeeProject.Controllers
 	public class ProductoController : ControllerBase
 	{
 		private readonly IProductosService _productosService;
+		private readonly MapperlyMapper _mapperly = new();
 		public ProductoController(IProductosService productosService)
 		{
 			_productosService = productosService;
@@ -27,9 +29,10 @@ namespace lubeeProject.Controllers
 
 		[HttpPost]
 		[Route("post-productos")]
-		public async Task InsertProducto(Producto producto)
+		public async Task InsertProducto(ProductoInput producto)
 		{
-			await _productosService.InsertProducto(producto);
+			var productoMapeo = _mapperly.Map(producto);
+			await _productosService.InsertProducto(productoMapeo);
 		}
 
 	}

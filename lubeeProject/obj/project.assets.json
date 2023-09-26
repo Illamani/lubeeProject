@@ -528,6 +528,19 @@
           }
         }
       },
+      "Riok.Mapperly/3.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/5.6.3": {
         "type": "package",
         "dependencies": {
@@ -1709,6 +1722,29 @@
         "portable.bouncycastle.nuspec"
       ]
     },
+    "Riok.Mapperly/3.2.0": {
+      "sha512": "EChq4G7PmEXhaPH4Ztw/CiHQ9iVg30Ir58vTA2MgGLsI+ciza5H4boLNK+mk+ik3eStwuA+ZeAxb4mhXVeDgFQ==",
+      "type": "package",
+      "path": "riok.mapperly/3.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "analyzers/roslyn4.0/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.0/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn4.4/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.4/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn4.5/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.5/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn4.7/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.7/dotnet/cs/Riok.Mapperly.dll",
+        "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll",
+        "lib/netstandard2.0/Riok.Mapperly.Abstractions.xml",
+        "logo.png",
+        "riok.mapperly.3.2.0.nupkg.sha512",
+        "riok.mapperly.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/5.6.3": {
       "sha512": "UkL9GU0mfaA+7RwYjEaBFvAzL8qNQhNqAeV5uaWUu/Z+fVgvK9FHkGCpTXBqSQeIHuZaIElzxnLDdIqGzuCnVg==",
       "type": "package",
@@ -2844,6 +2880,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
       "MySql.EntityFrameworkCore >= 7.0.5",
       "MySqlConnector >= 2.2.7",
+      "Riok.Mapperly >= 3.2.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -2922,6 +2959,10 @@
           "MySqlConnector": {
             "target": "Package",
             "version": "[2.2.7, )"
+          },
+          "Riok.Mapperly": {
+            "target": "Package",
+            "version": "[3.2.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

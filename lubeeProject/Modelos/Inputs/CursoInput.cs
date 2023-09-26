@@ -1,12 +1,12 @@
 ﻿using System;
-namespace lubeeProject.Modelos
+
+namespace lubeeProject.Modelos.Inputs
 {
-	public class Curso
+	public class CursoInput
 	{
-		public int Id { get; set; }
 		public string CourseCode { get; set; }
 		public DateTime FechaAlta { get; set; }
-		public int	Estado { get; set; }
+		public int Estado { get; set; }
 		public int CantidadEgresado { get; set; }
 		public DateTime FechaEntrega { get; set; }
 		public int MediaEntrega { get; set; }
@@ -17,7 +17,5 @@ namespace lubeeProject.Modelos
 		public string ColegioLocalidad { get; set; }
 		public int Comision { get; set; }
 		public decimal Total { get; set; }
-
-		public Contrato Contrato { get; set; }
 	}
 }

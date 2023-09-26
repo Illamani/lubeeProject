@@ -13,25 +13,66 @@
   <div>
     <button @click="created">Registrar mensaje</button>
   </div>
+  <div>
+    {{ this.contrato.producto }}
+  </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
-  methods: {
-    async created() {
-      // GET request using fetch with async/await
-      const response = await fetch(`https://localhost:9090/api/Contrato/get-contrato-by-id?id=${this.inputValue}`);
-      const data = await response.json();
-      console.log(data.total);
-      console.log(data);      
-    },
-    mounted() {
-      console.log("El componente se ha montado.");
-    },
-  },
-
   name: 'HelloWorld',
+  data(){    
+    return{
+      contrato: {
+      Id: null,
+      ContractId: null,
+      ItemId: null,
+      CreatedDate: null,
+      UpdateDate: null,
+      Enabled: false,
+      Deleted: false,
+      CreatedBy: null
+      },
+      curso: {
+        Id: null,
+        CourseCode: null,
+        FechaAlta: null,
+        Estaod: null,
+        CantidadEgresado: null,
+        FechaEntrega: null,
+        MediaEntrega: null,
+        Vendedor: null,
+        ColegioNivel: null,
+        ColegioNombre: null,
+        ColegioCurso: null,
+        ColegioLocalidad: null,
+        Comision: null,
+        Total: null,
+      },
+      producto: {
+        Id: null,
+        Nombre: null,
+        Precio: null,
+      }
+    }
+  },
+  methods: {
+    async created() {    
+      axios.get(`https://localhost:9090/api/Contrato/get-contrato-by-id?id=${this.inputValue}`)  
+        .then((response)=>{
+          this.contrato = response.data;
+          this.curso = this.contrato.curso;
+          this.producto = this.contrato.producto;
+          console.log(this.contrato)
+          console.log(this.curso)
+          console.log(this.producto)
+        })
+        .catch((error) =>{
+          console.log(error)
+        })
+    }
+  },
   props: {
     msg: String
   }

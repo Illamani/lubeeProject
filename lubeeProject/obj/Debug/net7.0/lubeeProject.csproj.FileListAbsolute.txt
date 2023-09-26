@@ -63,3 +63,4 @@ C:\Users\PC\Desktop\ProyectoLubee\lubeeProject\obj\Debug\net7.0\refint\lubeeProj
 C:\Users\PC\Desktop\ProyectoLubee\lubeeProject\obj\Debug\net7.0\lubeeProject.pdb
 C:\Users\PC\Desktop\ProyectoLubee\lubeeProject\obj\Debug\net7.0\lubeeProject.genruntimeconfig.cache
 C:\Users\PC\Desktop\ProyectoLubee\lubeeProject\obj\Debug\net7.0\ref\lubeeProject.dll
+C:\Users\PC\Desktop\ProyectoLubee\lubeeProject\bin\Debug\net7.0\Riok.Mapperly.Abstractions.dll

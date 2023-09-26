@@ -1,5 +1,6 @@
 ﻿using lubeeProject.Interfaces.Servicios;
 using lubeeProject.Modelos;
+using lubeeProject.Modelos.Inputs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace lubeeProject.Controllers
 	public class ContratoController : ControllerBase
 	{
         private readonly IContratoService _contratoService;
-        public ContratoController(IContratoService contratoService)
+		private readonly MapperlyMapper _mapperly = new();
+		public ContratoController(IContratoService contratoService)
         {
             _contratoService = contratoService;
         }
@@ -27,9 +29,10 @@ namespace lubeeProject.Controllers
 
         [HttpPost]
         [Route("insert-contratos")]
-        public async Task InsertContratos(Contrato contrato)
+        public async Task InsertContratos(ContratoInput contrato)
         {
-            await _contratoService.InsertContratos(contrato);
+            var contratoMapeo = _mapperly.Map(contrato);
+            await _contratoService.InsertContratos(contratoMapeo);
         }
 
         [HttpGet]
