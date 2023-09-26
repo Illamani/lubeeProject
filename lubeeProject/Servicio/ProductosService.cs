@@ -18,5 +18,10 @@ namespace lubeeProject.Servicio
 		{
 			return await _productosRepositorio.GetProductos();
 		}
+
+		public async Task InsertProducto(Producto producto)
+		{
+			await _productosRepositorio.InsertProducto(producto);
+		}
 	}
 }

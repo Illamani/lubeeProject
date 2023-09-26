@@ -19,5 +19,11 @@ namespace lubeeProject.Repositorio
             var productos = await _context.Producto.ToListAsync();
             return productos;
         }
+
+        public async Task InsertProducto(Producto producto)
+        {
+            await _context.Producto.AddAsync(producto);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -35,6 +35,10 @@ namespace lubeeProject
 
 			services.AddScoped<IProductosService, ProductosService>();
 			services.AddScoped<IProductosRepositorio, ProductosRepositorio>();
+			services.AddScoped<ICursoRepositorio, CursoRepositorio>();
+			services.AddScoped<ICursoService, CursoService>();
+			services.AddScoped<IContratoRepositorio, ContratoRepositorio>();
+			services.AddScoped<IContratoService, ContratoService>();
 
 			services.AddDbContext<AppDbContext>(options =>
 				options.UseMySQL(Configuration.GetConnectionString("Default")));

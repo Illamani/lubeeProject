@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace lubeeProject.Interfaces.Repositorios
 {
-	public interface IProductosRepositorio
+	public interface IContratoRepositorio
 	{
-		Task<List<Producto>> GetProductos();
-		Task InsertProducto(Producto producto);
+		Task<List<Contrato>> GetContratos();
+		Task InsertContratos(Contrato contrato);
 	}
 }

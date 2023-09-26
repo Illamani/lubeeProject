@@ -10,5 +10,7 @@ namespace lubeeProject.Repositorio
 		}
 
 		public DbSet<Producto> Producto { get; set; }
+		public DbSet<Contrato> Contrato { get; set; }
+		public DbSet<Curso> Curso { get; set; }
 	}
 }

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace lubeeProject.Interfaces.Servicios
 {
-	public interface IProductosService
+	public interface ICursoService
 	{
-		Task<List<Producto>> GetProductos();
-		Task InsertProducto(Producto producto);
+		Task<List<Curso>> GetCursos();
+		Task InsertCurso(Curso curso);
 	}
 }
