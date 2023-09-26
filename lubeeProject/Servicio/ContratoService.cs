@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lubeeProject.Servicio
 {
-	public class ContratoService : IContratoService
+    public class ContratoService : IContratoService
 	{
 		private readonly IContratoRepositorio _contratoRepositorio;
 		public ContratoService(IContratoRepositorio contratoRepositorio)
@@ -22,6 +22,11 @@ namespace lubeeProject.Servicio
 		public async Task InsertContratos(Contrato contrato)
 		{
 			await _contratoRepositorio.InsertContratos(contrato);
+		}
+
+		public async Task<Contrato> GetContratosById(int id)
+		{
+			return await _contratoRepositorio.GetContratosById(id);
 		}
 	}
 }

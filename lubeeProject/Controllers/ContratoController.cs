@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lubeeProject.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ContratoController : ControllerBase
 	{
@@ -16,6 +16,7 @@ namespace lubeeProject.Controllers
         {
             _contratoService = contratoService;
         }
+
 
         [HttpGet]
         [Route("get-contratos")]
@@ -29,6 +30,13 @@ namespace lubeeProject.Controllers
         public async Task InsertContratos(Contrato contrato)
         {
             await _contratoService.InsertContratos(contrato);
+        }
+
+        [HttpGet]
+        [Route("get-contrato-by-id")]
+        public async Task<Contrato> GetContratosById(int id)
+        {
+            return await _contratoService.GetContratosById(id);
         }
     }
 }

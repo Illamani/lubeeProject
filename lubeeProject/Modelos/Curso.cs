@@ -1,8 +1,8 @@
 ﻿using System;
-
+using lubeeProject.Modelos;
 namespace lubeeProject.Modelos
 {
-	public class Curso
+    public class Curso
 	{
 		public int Id { get; set; }
 		public string CourseCode { get; set; }
@@ -18,5 +18,7 @@ namespace lubeeProject.Modelos
 		public string ColegioLocalidad { get; set; }
 		public int Comision { get; set; }
 		public decimal Total { get; set; }
+
+		public Contrato Contrato { get; set; }
 	}
 }

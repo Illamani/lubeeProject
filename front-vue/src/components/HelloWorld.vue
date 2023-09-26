@@ -7,10 +7,30 @@
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
   </div>
+  <div>
+    <input type="number" placeholder="Ingresar Id" v-model="inputValue">
+  </div>
+  <div>
+    <button @click="created">Registrar mensaje</button>
+  </div>
 </template>
 
 <script>
 export default {
+
+  methods: {
+    async created() {
+      // GET request using fetch with async/await
+      const response = await fetch(`https://localhost:9090/api/Contrato/get-contrato-by-id?id=${this.inputValue}`);
+      const data = await response.json();
+      console.log(data.total);
+      console.log(data);      
+    },
+    mounted() {
+      console.log("El componente se ha montado.");
+    },
+  },
+
   name: 'HelloWorld',
   props: {
     msg: String
