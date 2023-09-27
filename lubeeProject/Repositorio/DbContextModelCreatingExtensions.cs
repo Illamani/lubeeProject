@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace lubeeProject.Repositorio
 {
-    public static class DbContextModelCreatingExtensions
+	public static class DbContextModelCreatingExtensions
 	{
 		public static void ConfigureDbContextService(this ModelBuilder builder)
 		{
@@ -14,6 +14,8 @@ namespace lubeeProject.Repositorio
 				e.HasKey(x => x.Id).HasName("Id");
 				e.Property(x => x.Nombre).HasColumnName("Nombre");
 				e.Property(x => x.Precio).HasColumnName("Precio");
+
+				e.HasOne(x => x.Contrato).WithOne(x => x.Producto).HasPrincipalKey<Producto>(x => x.Id).HasForeignKey<Contrato>(x => x.ItemId);
 			});
 
 			builder.Entity<Curso>(e =>
@@ -33,7 +35,7 @@ namespace lubeeProject.Repositorio
 				e.Property(x => x.Comision).HasColumnName("Comision");
 				e.Property(x => x.Total).HasColumnName("Total");
 
-				
+				e.HasMany(e => e.Contrato).WithOne(e => e.Curso).HasForeignKey(x => x.ContractId).HasPrincipalKey(e => e.Id);
 			});
 
 			builder.Entity<Contrato>(e =>

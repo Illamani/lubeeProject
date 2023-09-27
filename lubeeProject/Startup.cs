@@ -19,6 +19,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace lubeeProject
 {
@@ -31,7 +32,6 @@ namespace lubeeProject
 
 		public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
@@ -51,12 +51,9 @@ namespace lubeeProject
 			services.AddDbContext<AppDbContext>(options =>
 				options.UseMySQL(Configuration.GetConnectionString("Default")));
 			services.AddControllers()
-				.AddJsonOptions(options =>
-				{
-					options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-					options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-					options.JsonSerializerOptions.WriteIndented = true;
-				});
+				.AddNewtonsoftJson(options =>
+					options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+				);
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "lubeeProject", Version = "v1" });
