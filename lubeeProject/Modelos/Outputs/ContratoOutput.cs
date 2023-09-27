@@ -12,7 +12,7 @@ namespace lubeeProject.Modelos.Outputs
 		public bool Deleted { get; set; }
 		public string CreatedBy { get; set; }
 
-		public Curso Curso { get; set; }
-		public Producto Producto { get; set; }
+		public CursoOutput Curso { get; set; }
+		public ProductoOutput Producto { get; set; }
 	}
 }

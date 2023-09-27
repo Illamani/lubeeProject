@@ -1,6 +1,7 @@
 ﻿using lubeeProject.Interfaces.Servicios;
 using lubeeProject.Modelos;
 using lubeeProject.Modelos.Inputs;
+using lubeeProject.Modelos.Outputs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -37,9 +38,10 @@ namespace lubeeProject.Controllers
 
         [HttpGet]
         [Route("get-contrato-by-id")]
-        public async Task<Contrato> GetContratosById(int id)
+        public async Task<ContratoOutput> GetContratosById(int id)
         {
-            return await _contratoService.GetContratosById(id);
+            var contratoById = await _contratoService.GetContratosById(id);
+            return _mapperly.Map(contratoById);
         }
     }
 }

@@ -25,7 +25,6 @@ export default {
   data(){    
     return{
       contrato: {
-      Id: null,
       ContractId: null,
       ItemId: null,
       CreatedDate: null,
@@ -35,7 +34,6 @@ export default {
       CreatedBy: null
       },
       curso: {
-        Id: null,
         CourseCode: null,
         FechaAlta: null,
         Estaod: null,
@@ -51,7 +49,6 @@ export default {
         Total: null,
       },
       producto: {
-        Id: null,
         Nombre: null,
         Precio: null,
       }
