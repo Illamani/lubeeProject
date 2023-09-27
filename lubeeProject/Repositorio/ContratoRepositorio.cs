@@ -19,8 +19,8 @@ namespace lubeeProject.Repositorio
 		public async Task<List<Contrato>> GetContratos()
 		{
 			var contrato = await _context.Contrato
-				//.Include(x => x.Curso)
-				//.Include(x => x.Producto)
+				.Include(x => x.Curso)
+				.Include(x => x.Producto)
 				.ToListAsync();
 			var contratoOutput = _mapperly.Map(contrato);
 			return contrato;

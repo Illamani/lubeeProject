@@ -1,8 +1,9 @@
 ﻿using lubeeProject.Interfaces.Servicios;
 using lubeeProject.Modelos;
 using lubeeProject.Modelos.Inputs;
-using Microsoft.AspNetCore.Http;
+using lubeeProject.Modelos.Outputs;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -23,8 +24,10 @@ namespace lubeeProject.Controllers
 		[Route("get-cursos")]
 		public async Task<List<Curso>> GetCursos()
 		{
-			return await _cursoService.GetCursos();
+			var curso = await _cursoService.GetCursos();
+			return curso;
 		}
+
 
 		[HttpPost]
 		[Route("insert-curso")]

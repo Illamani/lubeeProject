@@ -4,6 +4,7 @@ namespace lubeeProject.Modelos.Inputs
 {
 	public class CursoInput
 	{
+		public int Id {  get; set; }
 		public string CourseCode { get; set; }
 		public DateTime FechaAlta { get; set; }
 		public int Estado { get; set; }

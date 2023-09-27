@@ -32,6 +32,8 @@ namespace lubeeProject.Repositorio
 				e.Property(x => x.ColegioLocalidad).HasColumnName("ColegioLocalidad");
 				e.Property(x => x.Comision).HasColumnName("Comision");
 				e.Property(x => x.Total).HasColumnName("Total");
+
+				
 			});
 
 			builder.Entity<Contrato>(e =>
@@ -46,7 +48,7 @@ namespace lubeeProject.Repositorio
 				e.Property(x => x.Deleted).HasColumnName("Deleted");
 				e.Property(x => x.CreatedBy).HasColumnName("CreatedBy");
 
-				e.HasOne(x => x.Curso).WithOne(x => x.Contrato).HasPrincipalKey<Contrato>(x => x.ContractId).HasForeignKey<Curso>(x => x.Id);
+				e.HasOne(x => x.Curso).WithMany(x => x.Contrato).HasForeignKey(x => x.ContractId);
 				e.HasOne(x => x.Producto).WithOne(x => x.Contrato).HasPrincipalKey<Contrato>(x => x.ItemId).HasForeignKey<Producto>(x => x.Id);
 			});
 		}

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace lubeeProject.Modelos
 {
 	public class Curso
@@ -18,6 +20,6 @@ namespace lubeeProject.Modelos
 		public int Comision { get; set; }
 		public decimal Total { get; set; }
 
-		public Contrato Contrato { get; set; }
+		public ICollection<Contrato> Contrato { get; set; }
 	}
 }

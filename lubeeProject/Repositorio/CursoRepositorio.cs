@@ -16,8 +16,11 @@ namespace lubeeProject.Repositorio
 
         public async Task<List<Curso>> GetCursos()
         {
-            return await _context.Curso.ToListAsync();
-        }
+            var curso = await _context.Curso.Include(x => x.Contrato).ThenInclude(x => x.Producto).ToListAsync();
+            //var curso = await _context.Curso.ToListAsync();
+            return curso;
+
+		}
 
         public async Task InsertCurso(Curso curso)
         {

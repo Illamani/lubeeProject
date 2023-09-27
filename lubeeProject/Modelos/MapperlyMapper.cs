@@ -15,7 +15,7 @@ namespace lubeeProject.Modelos
 
 		public partial ContratoOutput Map(Contrato contrato);
 		public partial List<ContratoOutput> Map(List<Contrato> contrato);
-		//public partial ContratoInput Map(Contrato contrato);
+		public partial List<CursoOutput> Map(List<Curso> contrato);
 		public partial CursoInput Map(Curso curso);
 		public partial ProductoInput Map(Producto producto);
 	}

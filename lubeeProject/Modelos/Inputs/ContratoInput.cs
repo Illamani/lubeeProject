@@ -4,6 +4,7 @@ namespace lubeeProject.Modelos.Inputs
 {
 	public class ContratoInput
 	{
+		public int Id { get; set; }
 		public int ContractId { get; set; }
 		public int ItemId { get; set; }
 		public DateTime CreatedDate { get; set; }

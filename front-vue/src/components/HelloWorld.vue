@@ -1,21 +1,44 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
   </div>
   <div>
-    <input type="number" placeholder="Ingresar Id" v-model="inputValue">
+    <input type="number" inputmode="numeric" placeholder="Ingresar Id" v-model="inputValue">
   </div>
   <div>
-    <button @click="created">Registrar mensaje</button>
+    <button class="btn btn-primary" @click="created">Buscar Curso</button>
   </div>
-  <div>
-    {{ this.contrato.producto }}
-  </div>
+  <!--table table-dark-->
+  <div class="container-fluid ">
+        <h1 class="text-center display-9">Tabla Cursos</h1>  
+        <div class="row border border-dark bg-primary " id="heading">
+            <div class="col border border-dark">Código de curso</div>
+            <div class="col border border-dark">Fecha de alta</div>
+            <div class="col border border-dark">Colegio</div>
+            <div class="col border border-dark">Nivel</div>
+            <div class="col border border-dark">Curso</div>
+            <div class="col border border-dark">Localidad</div>
+            <div class="col border border-dark">Pedido</div>
+            <div class="col border border-dark">Total</div>
+            <div class="col border border-dark">Fecha de entrega</div>
+        </div>
+  
+        <div class="row border border-dark ">          
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.courseCode}} </div>
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.fechaAlta}} </div>
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioNombre}} </div>
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioNivel}} </div>
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioCurso}} </div>
+              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioLocalidad}} </div>
+              <div class="col border border-dark" v-if="this.curso">
+                <div class="col border border-dark" v-for="index in 3" :key="index">
+                  {{index}}
+              </div>
+            </div>
+            <div class="col border border-dark" v-if="this.curso"> {{this.curso.total}} </div>
+            <div class="col border border-dark" v-if="this.curso"> {{this.curso.fechaEntrega}} </div>
+          </div>
+    </div>
 </template>
 
 <script>
@@ -24,6 +47,7 @@ export default {
   name: 'HelloWorld',
   data(){    
     return{
+      inputValue: '',
       contrato: {
       ContractId: null,
       ItemId: null,
@@ -36,7 +60,7 @@ export default {
       curso: {
         CourseCode: null,
         FechaAlta: null,
-        Estaod: null,
+        Estado: null,
         CantidadEgresado: null,
         FechaEntrega: null,
         MediaEntrega: null,
@@ -63,7 +87,7 @@ export default {
           this.producto = this.contrato.producto;
           console.log(this.contrato)
           console.log(this.curso)
-          console.log(this.producto)
+          console.log(this.producto.nombre)
         })
         .catch((error) =>{
           console.log(error)
@@ -76,8 +100,16 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+body {
+    background-color: #ffcc00; 
+}
 h3 {
   margin: 40px 0 0;
 }

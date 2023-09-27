@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace lubeeProject.Modelos.Outputs
 {
@@ -17,5 +18,7 @@ namespace lubeeProject.Modelos.Outputs
 		public string ColegioLocalidad { get; set; }
 		public int Comision { get; set; }
 		public decimal Total { get; set; }
+
+		public ICollection<ContratoOutput> Contrato { get; set; }
 	}
 }

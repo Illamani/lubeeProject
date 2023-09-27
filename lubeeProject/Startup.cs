@@ -16,6 +16,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -53,6 +54,8 @@ namespace lubeeProject
 				.AddJsonOptions(options =>
 				{
 					options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+					options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+					options.JsonSerializerOptions.WriteIndented = true;
 				});
 			services.AddSwaggerGen(c =>
 			{
