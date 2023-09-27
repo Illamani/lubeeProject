@@ -21,13 +21,20 @@ namespace lubeeProject.Controllers
 		}
 
 		[HttpGet]
+		[Route("get-curso-by-id")]
+		public async Task<List<Curso>> GetCursoById(int id)
+		{
+			var curso = await _cursoService.GetCursoById(id);
+			return curso;
+		}
+
+		[HttpGet]
 		[Route("get-cursos")]
 		public async Task<List<Curso>> GetCursos()
 		{
 			var curso = await _cursoService.GetCursos();
 			return curso;
 		}
-
 
 		[HttpPost]
 		[Route("insert-curso")]

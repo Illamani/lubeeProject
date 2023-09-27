@@ -15,7 +15,12 @@ namespace lubeeProject.Servicio
             _cursoRepositorio = cursoRepositorio;
         }
 
-        public async Task<List<Curso>> GetCursos()
+        public async Task<List<Curso>> GetCursoById(int id)
+        {
+            return await _cursoRepositorio.GetCursoById(id);
+        }
+
+		public async Task<List<Curso>> GetCursos()
         {
             return await _cursoRepositorio.GetCursos();
         }
