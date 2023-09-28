@@ -24,19 +24,22 @@
         </div>
   
         <div class="row border border-dark ">          
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.courseCode}} </div>
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.fechaAlta}} </div>
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioNombre}} </div>
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioNivel}} </div>
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioCurso}} </div>
-              <div class="col border border-dark" v-if="this.curso"> {{this.curso.colegioLocalidad}} </div>
-              <div class="col border border-dark" v-if="this.curso">
-                <div class="col border border-dark" v-for="index in 3" :key="index">
-                  {{index}}
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].courseCode}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].fechaAlta}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].colegioNombre}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].colegioNivel}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].colegioCurso}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].colegioLocalidad}} </div>
+              <div class="col border border-dark" v-if="this.curso[0]">
+                <div class="col border border-dark" v-for="(contrato,index) in this.curso[0].contrato" :key="index">
+                  Cantidad: {{ this.curso[0].cantidadEgresado }}
+                  Articulo: {{ contrato.producto.nombre }}
+                  Precio Unitario: {{ contrato.producto.precio }}
+                  Precio Totales: {{ this.PreciosTotales[index] }}
               </div>
             </div>
-            <div class="col border border-dark" v-if="this.curso"> {{this.curso.total}} </div>
-            <div class="col border border-dark" v-if="this.curso"> {{this.curso.fechaEntrega}} </div>
+            <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].total}} </div>
+            <div class="col border border-dark" v-if="this.curso[0]"> {{this.curso[0].fechaEntrega}} </div>
           </div>
     </div>
 </template>
@@ -47,6 +50,7 @@ export default {
   name: 'HelloWorld',
   data(){    
     return{
+      PreciosTotales:[],
       inputValue: '',
       contrato: {
       ContractId: null,
@@ -80,18 +84,21 @@ export default {
   },
   methods: {
     async created() {    
-      axios.get(`https://localhost:9090/api/Contrato/get-contrato-by-id?id=${this.inputValue}`)  
+      axios.get(`https://localhost:9090/api/Curso/get-curso-by-id?id=${this.inputValue}`)  
         .then((response)=>{
-          this.contrato = response.data;
-          this.curso = this.contrato.curso;
-          this.producto = this.contrato.producto;
-          console.log(this.contrato)
-          console.log(this.curso)
-          console.log(this.producto.nombre)
+          this.curso = response.data;
+          console.log(this.curso[0])
+          this.getTotal()          
         })
         .catch((error) =>{
           console.log(error)
         })
+    },
+    getTotal(){
+      for(var x = 0; x < this.curso[0].contrato.length; x++){
+        this.PreciosTotales[x] = this.curso[0].cantidadEgresado * this.curso[0].contrato[x].producto.precio
+        console.log(this.PreciosTotales[x])
+      }
     }
   },
   props: {
